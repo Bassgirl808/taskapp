@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201002101924) do
+ActiveRecord::Schema.define(version: 20201002102639) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "due_by"
+    t.boolean  "complete"
+    t.integer  "board_id"
+    t.datetime "updated_at",  null: false
+    t.index ["board_id"], name: "index_tasks_on_board_id"
   end
 
 end
