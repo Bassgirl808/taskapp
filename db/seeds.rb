@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+priorities = Priority.create([
+    {
+        name: "None",
+        value: 0
+    },
+    {
+        name: "Low",
+        value: 1,
+    },
+    {
+        name: "Medium",
+        value: 2,
+    },
+    {
+        name: "High",
+        value: 3,
+    }
+])
