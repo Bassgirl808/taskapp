@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201002105601) do
+ActiveRecord::Schema.define(version: 20201002110207) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20201002105601) do
   create_table "priorities", force: :cascade do |t|
     t.string  "name"
     t.integer "value"
+  end
+
+  create_table "priorities_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id",     null: false
+    t.integer "priority_id", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
