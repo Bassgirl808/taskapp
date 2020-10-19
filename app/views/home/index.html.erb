@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome!</h1>
+
+<div>
+  <% if !(user_signed_in?) %>
+    <%= link_to('Login', new_user_session_path) %>
+    <%= link_to('SignUp', new_user_registration_path) %>
+  <% else %>
+    <%= link_to('Boards', '/boards') %>
+  <% end %>  
+</div>

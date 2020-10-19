@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'boards#index', as: :authenticated_root
+      root 'home#index', as: :authenticated_root
     end
   
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'home#index', as: :unauthenticated_root
     end
   end
   resources :tasks
