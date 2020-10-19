@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201016040413) do
+ActiveRecord::Schema.define(version: 20201019064439) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,15 +41,23 @@ ActiveRecord::Schema.define(version: 20201016040413) do
     t.integer "priority_id", null: false
   end
 
+  create_table "task_lists", force: :cascade do |t|
+    t.string  "name"
+    t.integer "board_id"
+    t.index ["board_id"], name: "index_task_lists_on_board_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
+    t.datetime "created_at",    null: false
     t.datetime "due_by"
     t.boolean  "complete"
     t.integer  "board_id"
-    t.datetime "updated_at",  null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "task_lists_id"
     t.index ["board_id"], name: "index_tasks_on_board_id"
+    t.index ["task_lists_id"], name: "index_tasks_on_task_lists_id"
   end
 
   create_table "users", force: :cascade do |t|
