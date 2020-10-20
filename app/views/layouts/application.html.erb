@@ -10,10 +10,10 @@
 
   <body class="w-full gray">
     <div class="sticky w-full flex flex-row justify-between items-center px-1 py-2 bg-gray-300">
-      <%= link_to('TaskApp', '/') %>
+      <%= link_to 'TaskApp', '/', class: 'text-2xl font-semibold tracking-wide leading-none text-black mx-2' %>
       <% if user_signed_in? %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-      <% end %>  
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-lg font-normal tracking-normal leading-none text-black mx-2' %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
