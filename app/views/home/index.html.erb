@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Welcome!</h1>
-
-<div>
+<div class="w-full">
   <% if !(user_signed_in?) %>
-    <%= link_to('Login', new_user_session_path) %>
-    <%= link_to('SignUp', new_user_registration_path) %>
+    <div class="w-full flex flex-col ">
+      <h1 class="m-4 text-4xl text-center">Welcome!</h1>
+      
+      <div class="flex flex-row items-center justify-center">
+        <%= link_to 'Login', new_user_session_path, class: 'm-1 px-2 py-1 bg-gray-500 text-gray-200 text-xl rounded-md' %>
+        <%= link_to 'SignUp', new_user_registration_path, class: 'm-1 px-2 py-1 bg-gray-500 text-gray-200 text-xl rounded-md' %>
+      </div>
+    </div>
   <% else %>
     <%= link_to('Boards', '/boards') %>
   <% end %>  
