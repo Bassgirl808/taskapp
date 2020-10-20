@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"NPM Functioning...\" && exit 1",
     "init:tailwind": "tailwind init",
-    "build:css": "tailwind build styles.css -o ../wwwroot/css/tailwind.css",
+    "build:css": "tailwind build styles.css -o app/assets/stylesheets/tailwind.css",
     "build:modules": "npm run build:modules:vanillajs && npm run build:modules:hls && npm run build:modules:video && npm run build:modules:bundle"
   },
   "repository": {
