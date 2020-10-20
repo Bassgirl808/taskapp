@@ -8,12 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div>
+  <body class="w-full gray">
+    <div class="sticky w-full flex flex-row justify-between items-center px-1 py-2 bg-gray-300">
+      <%= link_to('TaskApp', '/') %>
       <% if user_signed_in? %>
-        <li>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-        </li>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
       <% end %>  
     </div>
     <%= yield %>
