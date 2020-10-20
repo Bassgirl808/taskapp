@@ -1,0 +1,29 @@
+{
+  "name": "taskapp",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "n/a",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"NPM Functioning...\" && exit 1",
+    "init:tailwind": "tailwind init",
+    "build:css": "tailwind build styles.css -o ../wwwroot/css/tailwind.css",
+    "build:modules": "npm run build:modules:vanillajs && npm run build:modules:hls && npm run build:modules:video && npm run build:modules:bundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bassgirl808/taskapp.git"
+  },
+  "author": "jsaloma",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Bassgirl808/taskapp/issues"
+  },
+  "homepage": "https://github.com/Bassgirl808/taskapp#readme",
+  "dependencies": {
+    "tailwindcss": "^1.9.5"
+  }
+}
