@@ -1,4 +1,5 @@
 class TaskListsController < ApplicationController
+  before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_task_list, only: [:show, :edit, :update, :destroy]
 
   # GET /task_lists

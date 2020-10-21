@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
