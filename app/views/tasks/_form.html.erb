@@ -41,13 +41,7 @@
   </div>
   
   <div class="mx-1 my-2">
-    <select class="w-64 px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md">
-      <% if !@task_lists.nil? %>
-        <% @task_lists.each do |task_list| %>
-          <option value="<% task_list.id %>" class="text-md leading-normal tracking-normal"><%= task_list.name %></option>
-        <% end %>
-      <% end %>
-    </select>
+    <%= f.select :task_lists_id, options_for_select(@task_lists.map{ |task_list| [task_list.name, task_list.id]}, class: 'text-md leading-normal tracking-normal'), class: 'w-64 px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
   
   <%= f.submit "Save", class: 'flex-shrink m-1 px-2 py-1 bg-gray-300 rounded-md text-md text-gray text-center'%>

@@ -20,13 +20,15 @@ class TaskListsController < ApplicationController
 
   # GET /task_lists/1/edit
   def edit
+    @boards = Board.all()
   end
 
   # POST /task_lists
   # POST /task_lists.json
   def create
+    puts @test
+    #task_list.board = Board.find(task_list_params.board)
     @task_list = TaskList.new(task_list_params)
-
     respond_to do |format|
       if @task_list.save
         format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
@@ -70,6 +72,6 @@ class TaskListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_list_params
-      params.require(:task_list).permit(:name, board_attributes: %i[name])
+      params.require(:task_list).permit(:name, :board_id, board_attributes: :id)
     end
 end

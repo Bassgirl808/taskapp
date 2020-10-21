@@ -11,18 +11,8 @@
     </div>
   <% end %>
   
-  <div class="mx-2 my-1">
-    <% boardnamearr = Array.new %>
-    <%= f.label :board, class: 'text-gray-700 text-sm' %>
-    <br />
-    <% if !@boards.nil? %>
-      <% @boards.each do |board| %>
-        <% boardnamearr.push(board.name) %>
-      <% end %>
-    <% end %>
-    
-    <%= f.select :board, boardnamearr %>
-    
+  <div class="mx-1 my-2">
+    <%= f.select :board_id, options_for_select(@boards.map{ |board| [board.name, board.id]}, class: 'text-md leading-normal tracking-normal'), class: 'w-64 px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
   
   <div class="mx-1 my-2">
