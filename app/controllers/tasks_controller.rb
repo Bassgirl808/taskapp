@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all()
   end
 
   # GET /tasks/1
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = Task.new()
     @task_lists = TaskList.all()
   end
 
@@ -71,6 +71,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :description, :due_by, :complete, task_list_attributes: %i[name])
+      params.require(:task).permit(:name, :description, :due_by, :complete, :task_list_id, task_list_attributes: :id)
     end
 end

@@ -4,7 +4,7 @@ class TaskListsController < ApplicationController
   # GET /task_lists
   # GET /task_lists.json
   def index
-    @task_lists = TaskList.all
+    @task_lists = TaskList.all()
   end
 
   # GET /task_lists/1
@@ -14,7 +14,7 @@ class TaskListsController < ApplicationController
 
   # GET /task_lists/new
   def new
-    @task_list = TaskList.new
+    @task_list = TaskList.new()
     @boards = Board.all()
   end
 
