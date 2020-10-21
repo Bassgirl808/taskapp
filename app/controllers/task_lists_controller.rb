@@ -15,6 +15,7 @@ class TaskListsController < ApplicationController
   # GET /task_lists/new
   def new
     @task_list = TaskList.new
+    @boards = Board.all()
   end
 
   # GET /task_lists/1/edit
@@ -69,6 +70,6 @@ class TaskListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_list_params
-      params.fetch(:task_list, {})
+      params.require(:task_list).permit(:name, board_attributes: %i[name])
     end
 end
