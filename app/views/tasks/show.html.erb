@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= @task.name %>
+<%= @task.description %>
+<%= @task.due_by %> 
+<%= @task.complete %>
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
