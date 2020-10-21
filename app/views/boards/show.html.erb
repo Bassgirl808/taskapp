@@ -29,22 +29,22 @@
         <hr class="border border-black">
         
         <div class="flex flex-col mt-2 text-gray-800 rounded-md">
-          <% @tasks.each do |task| %>
+          <% task_list.tasks.each do |task| %>
             <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
               <p class="text-md"><% task.name %></p>
             </div>
           <% end %>
           
           <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
-            <p class="text-md"><% task.name %></p>
+            <%= link_to "Add Task", new_task_path(task_list_id: task_list.id), class: 'text-md' %>
             <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
           </div>
         </div>
       </div>
     <% end %>
     
-    <div class="flex flex-row items-center justify-between m-1 px-2 py-1 bg-gray-400 rounded-lg">
-      <p class="text-lg"><%= link_to "Add Task List", new_task_list_path(board: @board.id) %> </p>
+    <div class="h-10 flex flex-row items-center justify-between m-1 px-2 py-1 bg-gray-400 rounded-lg">
+      <%= link_to "Add Task List", new_task_list_path(board: @board.id), class: 'text-lg' %>
       <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
     </div>
   </div>
