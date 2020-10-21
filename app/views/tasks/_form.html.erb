@@ -13,21 +13,25 @@
 
   <div class="mx-1 my-2">
     <%= f.label :name, class: 'text-gray-700 text-sm' %>
+    <br />
     <%= f.text_field :name, class: 'px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
 
   <div class="mx-1 my-2">
     <%= f.label :description, class: 'text-gray-700 text-sm' %>
+    <br />
     <%= f.text_field :description, class: 'px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
   
   <div class="mx-1 my-2">
     <%= f.label :created_at, class: 'text-gray-700 text-sm' %>
+    <br />
     <%= f.datetime_select :created_at, class: 'px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
   
   <div class="mx-1 my-2">
     <%= f.label :due_by, class: 'text-gray-700 text-sm' %>
+    <br />
     <%= f.datetime_select :due_by, class: 'px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
   </div>
   
@@ -37,7 +41,7 @@
   </div>
   
   <div class="mx-1 my-2">
-    <select class="px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md">
+    <select class="w-64 px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md">
       <% if !@task_lists.nil? %>
         <% @task_lists.each do |task_list| %>
           <option value="<% task_list.name %>" class="text-md leading-normal tracking-normal"><%= task_list.name %></option>
