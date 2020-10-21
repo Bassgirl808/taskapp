@@ -36,16 +36,24 @@
           <% end %>
           
           <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
-            <%= link_to "Add Task", new_task_path(task_list_id: task_list.id), class: 'text-md' %>
-            <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+            <%= link_to new_task_path(task_list_id: task_list.id) do %>
+              <div class="flex flex-row items-center justify-between">
+                <p class="text-md">Add Task</p>
+                <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
     
     <div class="h-10 flex flex-row items-center justify-between m-1 px-2 py-1 bg-gray-400 rounded-lg">
-      <%= link_to "Add Task List", new_task_list_path(board: @board.id), class: 'text-lg' %>
-      <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+      <%= link_to new_task_list_path(board: @board.id) do %>
+        <div class="flex flex-row items-center justify-between">
+          <p class="text-lg">Add Task List</p>
+          <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -6,7 +6,11 @@
   <%= render 'form', task: @task %>
   
   <div class="w-20 flex flex-row items-center m-1 p-1 bg-gray-400 rounded-md">
-    <%= link_to 'Back', tasks_path, class: 'text-lg'%>
-    <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg>
+    <%= link_to tasks_path do%>
+      <div class="flex flex-row items-center justify-between">
+        <p class="text-lg">Back</p>
+        <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -7,12 +7,20 @@
     
   <div class="m-1 flex flex-row">
     <div class="flex flex-row items-center p-1 bg-gray-400 rounded-md">
-      <%= link_to 'Show', @task_list, class: 'text-lg' %>
-      svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+      <%= link_to @task_list do %>
+        <div class="flex flex-row items-center justify-between">
+          <p class="text-lg">Show</p>
+          <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+        </div>
+      <% end %>
     </div>
     <div class="flex flex-row items-center ml-1 p-1 bg-gray-400 rounded-md">
-      <%= link_to 'Back', task_lists_path, class: 'text-lg' %>
-      <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg>
+      <%= link_to task_lists_path do %>
+        <div class="flex flex-row items-center justify-between">
+          <p class="text-lg">Back</p>
+          <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
