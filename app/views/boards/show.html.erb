@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-  <div class="flex flex-row justify-between">
-    <h1 class="text-2xl"><%=@board.name %></h1>
+  <div class="flex flex-row justify-between m-1 items-center">
+    <h1 class="mx-2 text-2xl"><%=@board.name %></h1>
     
-    <div>
-      <%= link_to 'Edit', edit_board_path(@board) %>
-      <%= link_to 'Back', boards_path %>
+    <div class="flex flex-row">
+      <div class="flex flex-row items-center m-1 p-1 bg-gray-400 rounded-md">
+        <%= link_to 'Edit', edit_board_path(@board), class: 'text-xl' %>
+        <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
+      </div>
+      <div class="flex flex-row items-center m-1 p-1 bg-gray-400 rounded-md">
+        <%= link_to 'Back', boards_path, class: 'text-xl' %>
+        <svg class="w-5 h-5 ml-2 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg>
+      </div>
     </div>
   </div>
   
   <hr class="border-2 border-black">
-  
   
   <div class="w-full flex flex-row">
     <% @board.task_lists.each do |task_list| %>
@@ -25,10 +30,22 @@
         
         <div class="flex flex-col mt-2 text-gray-800 rounded-md">
           <% @tasks.each do |task| %>
-            <p class="my-1 p-1 bg-gray-200 rounded-md text-md"><% task.name %></p>
+            <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
+              <p class="text-md"><% task.name %></p>
+            </div>
           <% end %>
+          
+          <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
+            <p class="text-md"><% task.name %></p>
+            <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+          </div>
         </div>
       </div>
     <% end %>
+    
+    <div class="flex flex-row items-center justify-between m-1 px-2 py-1 bg-gray-400 rounded-lg">
+      <p class="text-lg">Add Task List</p>
+      <svg class="w-5 h-5 m-1 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>
+    </div>
   </div>
 </div>
