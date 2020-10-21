@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201021092429) do
+ActiveRecord::Schema.define(version: 20201021214351) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20201021092429) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "priorities", force: :cascade do |t|
@@ -44,7 +46,9 @@ ActiveRecord::Schema.define(version: 20201021092429) do
   create_table "task_lists", force: :cascade do |t|
     t.string  "name"
     t.integer "board_id"
+    t.integer "user_id"
     t.index ["board_id"], name: "index_task_lists_on_board_id"
+    t.index ["user_id"], name: "index_task_lists_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -56,8 +60,10 @@ ActiveRecord::Schema.define(version: 20201021092429) do
     t.integer  "board_id"
     t.datetime "updated_at",   null: false
     t.integer  "task_list_id"
+    t.integer  "user_id"
     t.index ["board_id"], name: "index_tasks_on_board_id"
     t.index ["task_list_id"], name: "index_tasks_on_task_list_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

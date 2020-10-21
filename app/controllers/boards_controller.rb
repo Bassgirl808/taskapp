@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.where(user_id: current_user.id)
   end
 
   # GET /boards/1
@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
-    @board = Board.new
+    @board = Board.new()
   end
 
   # GET /boards/1/edit
@@ -26,6 +26,7 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @board = Board.new(board_params)
+    @board.user_id = current_user.id
 
     respond_to do |format|
       if @board.save
@@ -41,6 +42,7 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
+    @board.user_id = current_user.id
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }

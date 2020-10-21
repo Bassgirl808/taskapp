@@ -4,7 +4,7 @@ class TaskListsController < ApplicationController
   # GET /task_lists
   # GET /task_lists.json
   def index
-    @task_lists = TaskList.all()
+    @task_lists = TaskList.where(user_id: current_user.id)
   end
 
   # GET /task_lists/1
@@ -15,12 +15,12 @@ class TaskListsController < ApplicationController
   # GET /task_lists/new
   def new
     @task_list = TaskList.new()
-    @boards = Board.all()
+    @boards = Board.where(user_id: current_user.id)
   end
 
   # GET /task_lists/1/edit
   def edit
-    @boards = Board.all()
+    @boards = Board.where(user_id: current_user.id)
   end
 
   # POST /task_lists
@@ -29,6 +29,7 @@ class TaskListsController < ApplicationController
     puts @test
     #task_list.board = Board.find(task_list_params.board)
     @task_list = TaskList.new(task_list_params)
+    @task_list.user_id = current_user.id
     respond_to do |format|
       if @task_list.save
         format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
@@ -43,6 +44,7 @@ class TaskListsController < ApplicationController
   # PATCH/PUT /task_lists/1
   # PATCH/PUT /task_lists/1.json
   def update
+    @task_list.user_id = current_user.id
     respond_to do |format|
       if @task_list.update(task_list_params)
         format.html { redirect_to @task_list, notice: 'Task list was successfully updated.' }
