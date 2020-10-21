@@ -30,10 +30,18 @@
         
         <div class="flex flex-col mt-2 text-gray-800 rounded-md">
           <% task_list.tasks.each do |task| %>
-            <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
-              <p class="text-md"><%= task.name %></p>
-              <p class="text-md"><%= task.due_by %></p>
-              <%= check_box_tag 'done', '1', task.complete %>
+            <div class="flex flex-row justify-between m-1 p-1 bg-gray-200 rounded-md">
+              <div class="w-full flex flex-row items-center justify-between">
+                <div class="flex flex-row items-center">
+                  <p class="text-md"><%= task.name %></p>
+                  <p class="text-sm"><%= task.due_by %></p>
+                </div>
+                <% if task.complete %>
+                  <input type="checkbox" class="m-1 p-1" checked="true" readonly="true">
+                <% else %>
+                 <input type="checkbox" class="m-1 p-1" readonly="true">
+                <% end %>
+              </div>
               <%= link_to '...', tasks_path, class: 'text-xl' %>
             </div>
           <% end %>
