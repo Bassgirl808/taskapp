@@ -10,8 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="mx-2 my-1">
+    <% boardnamearr = Array.new %>
+    <%= f.label :board, class: 'text-gray-700 text-sm' %>
+    <br />
+    <% if !@boards.nil? %>
+      <% @boards.each do |board| %>
+        <% boardnamearr.push(board.name) %>
+      <% end %>
+    <% end %>
+    
+    <%= f.select :board, boardnamearr %>
+    
   </div>
+  
+  <div class="mx-1 my-2">
+    <%= f.label :name, class: 'text-gray-700 text-sm' %>
+    <br />
+    <%= f.text_field :name, class: 'px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md' %>
+  </div>
+
+  <%= f.submit "Save", class: 'flex-shrink m-1 px-2 py-1 bg-gray-300 rounded-md text-md text-gray text-center' %>
 <% end %>
