@@ -44,7 +44,7 @@
     <select class="w-64 px-2 py-1 border-gray-900 border bg-gray-100 text-md text-gray-800 rounded-md">
       <% if !@task_lists.nil? %>
         <% @task_lists.each do |task_list| %>
-          <option value="<% task_list.name %>" class="text-md leading-normal tracking-normal"><%= task_list.name %></option>
+          <option value="<% task_list.id %>" class="text-md leading-normal tracking-normal"><%= task_list.name %></option>
         <% end %>
       <% end %>
     </select>
