@@ -1,3 +1,3 @@
 class Board < ApplicationRecord
-    has_many :task_lists
+    has_many :task_lists, dependent: :destroy
 end
