@@ -33,7 +33,7 @@
             <div class="flex flex-row m-1 p-1 bg-gray-200 rounded-md">
               <p class="text-md"><%= task.name %></p>
               <p class="text-md"><%= task.due_by %></p>
-              <p class="text-md"><%= task.complete %></p>
+              <%= check_box_tag 'done', '1', task.complete %>
               <%= link_to '...', tasks_path, class: 'text-xl' %>
             </div>
           <% end %>
