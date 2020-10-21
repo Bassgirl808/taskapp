@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task_lists = TaskList.all()
   end
 
   # GET /tasks/1/edit
@@ -69,6 +70,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.fetch(:task, {})
+      params.require(:task).permit(:name, :description, :due_by, :complete, task_list_attributes: %i[name])
     end
 end
